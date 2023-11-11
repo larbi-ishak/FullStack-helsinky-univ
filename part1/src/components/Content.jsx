@@ -1,17 +1,17 @@
-export default function Content({ parts, exercises }) {
+export default function Content({ parts }) {
   return (
     <>
-      <Part part={parts[0]} exercise={exercises[0]} />
-      <Part part={parts[1]} exercise={exercises[1]} />
-      <Part part={parts[2]} exercise={exercises[2]} />
+      <Part part={parts[0]} />
+      <Part part={parts[1]} />
+      <Part part={parts[2]} />
     </>
   );
 }
 
-function Part({ part, exercise }) {
+function Part({ part }) {
   return (
     <p>
-      {part} {exercise}
+      {part.name} {part.exercises}
     </p>
   );
 }
