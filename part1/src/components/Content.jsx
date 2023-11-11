@@ -1,14 +1,14 @@
-export default function Content({ parts, exercices }) {
+export default function Content({ parts, exercises }) {
   return (
     <>
       <p>
-        {parts[0]} {exercices[0]}
+        {parts[0]} {exercises[0]}
       </p>
       <p>
-        {parts[1]} {exercices[1]}
+        {parts[1]} {exercises[1]}
       </p>
       <p>
-        {parts[2]} {exercices[2]}
+        {parts[2]} {exercises[2]}
       </p>
     </>
   );
