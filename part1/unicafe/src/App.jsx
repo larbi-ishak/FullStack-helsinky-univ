@@ -86,10 +86,15 @@ function App() {
         />
       )}
 
+      <h2>Anecdote of the day</h2>
       <div>{anecdotes[selected]}</div>
       <div>has {votes[selected]} votes</div>
       <button onClick={handleVote}>vote</button>
       <button onClick={handleNext}>next anecdote</button>
+
+      <h2>Anecdote with most votes</h2>
+      <div>{anecdotes[votes.indexOf(Math.max(...votes))]}</div>
+      <div>has {Math.max(...votes)} votes</div>
     </>
   );
 }
