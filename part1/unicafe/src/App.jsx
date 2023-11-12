@@ -53,6 +53,19 @@ function App() {
   ];
 
   const [selected, setSelected] = useState(0);
+  const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0));
+
+  const handleNext = () => {
+    selected === anecdotes.length - 1
+      ? setSelected(0)
+      : setSelected(selected + 1);
+  };
+
+  const handleVote = () => {
+    const copy = [...votes];
+    copy[selected] += 1;
+    setVotes(copy);
+  };
 
   return (
     <>
@@ -74,7 +87,9 @@ function App() {
       )}
 
       <div>{anecdotes[selected]}</div>
-      <button onClick={() => setSelected(selected + 1)}>next anecdote</button>
+      <div>has {votes[selected]} votes</div>
+      <button onClick={handleVote}>vote</button>
+      <button onClick={handleNext}>next anecdote</button>
     </>
   );
 }
