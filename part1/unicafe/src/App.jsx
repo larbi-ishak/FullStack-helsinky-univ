@@ -3,7 +3,10 @@ import { useState } from "react";
 function StaticLine(props) {
   return (
     <p>
-      {props.text} {props.value} {props.text === "positive" ? "%" : ""}
+      <th>{props.text}</th>
+      <td>
+        {props.value} {props.text === "positive" ? "%" : ""}{" "}
+      </td>
     </p>
   );
 }
@@ -11,11 +14,13 @@ function Statistics(props) {
   return (
     <>
       <h2>statistics</h2>
-      <StaticLine text="good" value={props.good} />
-      <StaticLine text="neutral" value={props.neutral} />
-      <StaticLine text="bad" value={props.bad} />
-      <StaticLine text="average" value={props.average} />
-      <StaticLine text="positive" value={props.postive} />
+      <table>
+        <StaticLine text="good" value={props.good} />
+        <StaticLine text="neutral" value={props.neutral} />
+        <StaticLine text="bad" value={props.bad} />
+        <StaticLine text="average" value={props.average} />
+        <StaticLine text="positive" value={props.postive} />
+      </table>
     </>
   );
 }
