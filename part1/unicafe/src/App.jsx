@@ -11,7 +11,6 @@ function Statistics(props) {
   return (
     <>
       <h2>statistics</h2>
-
       <StaticLine text="good" value={props.good} />
       <StaticLine text="neutral" value={props.neutral} />
       <StaticLine text="bad" value={props.bad} />
