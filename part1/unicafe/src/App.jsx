@@ -1,17 +1,28 @@
 import { useState } from "react";
 
+function StaticLine(props) {
+  return (
+    <p>
+      {props.text} {props.value} {props.text === "positive" ? "%" : ""}
+    </p>
+  );
+}
 function Statistics(props) {
   return (
     <>
       <h2>statistics</h2>
 
-      <p>good {props.good}</p>
-      <p>neutral {props.neutral}</p>
-      <p>bad {props.bad}</p>
-      <p>average {props.average}</p>
-      <p>positive {props.postive}%</p>
+      <StaticLine text="good" value={props.good} />
+      <StaticLine text="neutral" value={props.neutral} />
+      <StaticLine text="bad" value={props.bad} />
+      <StaticLine text="average" value={props.average} />
+      <StaticLine text="positive" value={props.postive} />
     </>
   );
+}
+
+function Button(props) {
+  return <button onClick={props.handleClick}>{props.text}</button>;
 }
 
 function App() {
@@ -29,16 +40,21 @@ function App() {
   return (
     <>
       <h2>give feedback</h2>
-      <button onClick={handleGood}>good</button>
-      <button onClick={handleNeutral}>neutral</button>
-      <button onClick={handleBad}>bad</button>
-      <Statistics
-        good={good}
-        bad={bad}
-        neutral={neutral}
-        average={average}
-        postive={postive}
-      />
+      <Button handleClick={handleGood} text="good" />
+      <Button handleClick={handleNeutral} text="neutral" />
+      <Button handleClick={handleBad} text="bad" />
+
+      {good + neutral + bad === 0 ? (
+        <p>No feedback given</p>
+      ) : (
+        <Statistics
+          good={good}
+          bad={bad}
+          neutral={neutral}
+          average={average}
+          postive={postive}
+        />
+      )}
     </>
   );
 }
